@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Insights - Daily Report</title>
+    <style>
+        /* ── RESET & BASE ──────────────────────────────────── */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0d1117;
+            color: #e6edf3;
+            line-height: 1.6;
+        }
+
+        /* ── CONTAINER ─────────────────────────────────────── */
+        .email-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            background-color: #161b22;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #30363d;
+        }
+
+        /* ── HEADER ────────────────────────────────────────── */
+        .header {
+            background: linear-gradient(135deg, #238636 0%, #1f6feb 100%);
+            padding: 32px 28px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            margin: 8px 0 0;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ── HIGHLIGHT CARD ────────────────────────────────── */
+        .highlight {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background-color: #0d1117;
+            margin: 24px 28px;
+            padding: 24px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+            text-align: center;
+        }
+
+        .highlight-value {
+            font-size: 42px;
+            font-weight: 800;
+            color: #58a6ff;
+            line-height: 1;
+        }
+
+        .highlight-label {
+            font-size: 14px;
+            color: #8b949e;
+            margin-top: 4px;
+        }
+
+        .highlight-divider {
+            width: 1px;
+            height: 50px;
+            background-color: #30363d;
+        }
+
+        .highlight-detail {
+            font-size: 16px;
+            color: #c9d1d9;
+            font-weight: 500;
+        }
+
+        /* ── SECTION ───────────────────────────────────────── */
+        .section {
+            padding: 0 28px 24px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #c9d1d9;
+            margin: 24px 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #21262d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-icon {
+            font-size: 18px;
+        }
+
+        /* ── TABLE ─────────────────────────────────────────── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        thead th {
+            text-align: left;
+            color: #8b949e;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 12px;
+            border-bottom: 1px solid #21262d;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            color: #c9d1d9;
+            border-bottom: 1px solid #161b22;
+        }
+
+        tbody tr:hover {
+            background-color: #1c2128;
+        }
+
+        .name-cell {
+            font-weight: 500;
+            color: #e6edf3;
+        }
+
+        /* ── PROGRESS BAR ─────────────────────────────────── */
+        .progress-bar {
+            background-color: #21262d;
+            border-radius: 4px;
+            height: 6px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #238636, #2ea043);
+        }
+
+        /* ── FOOTER ────────────────────────────────────────── */
+        .footer {
+            text-align: center;
+            padding: 20px 28px;
+            border-top: 1px solid #21262d;
+            font-size: 12px;
+            color: #484f58;
+        }
+
+        .footer a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-wrapper">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>📊 Dev Insights</h1>
+            <p>Relatório diário de desenvolvimento — $date</p>
+        </div>
+
+        <!-- GREETING -->
+        <div class="section" style="padding-top: 24px;">
+            <p style="margin: 0; color: #c9d1d9;">
+                Olá, <strong>$developer_name</strong>! Aqui está o resumo da sua atividade de desenvolvimento.
+            </p>
+        </div>
+
+        <!-- HIGHLIGHT -->
+        <div class="highlight">
+            <div>
+                <div class="highlight-value">$total_hours</div>
+                <div class="highlight-label">horas codificando</div>
+            </div>
+            <div class="highlight-divider"></div>
+            <div>
+                <div class="highlight-detail">$total_text</div>
+                <div class="highlight-label">tempo total</div>
+            </div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="section">
+            <div class="section-title">
+                <span class="section-icon">💻</span> Linguagens
+            </div>
+            $languages
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="section">
+            <div class="section-title">
+                <span class="section-icon">📁</span> Projetos
+            </div>
+            $projects
+        </div>
+
+        <!-- EDITORS -->
+        <div class="section">
+            <div class="section-title">
+                <span class="section-icon">⚙️</span> Editores
+            </div>
+            $editors
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>Gerado automaticamente por <strong>Dev Insights</strong></p>
+            <p>Powered by WakaTime API</p>
+            <p>Desenvolvido por <a href="https://github.com/rickluizms">rickluizms</a></p>
+        </div>
+
+    </div>
+</body>
+
+</html>

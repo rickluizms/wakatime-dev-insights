@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    container_name: dev-insights-api
+    ports:
+      - "8091:8091"
+    env_file:
+      - .env
+    environment:
+      - RUN_SCHEDULED=false
+    command: [ "uv", "run", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8091" ]
+    restart: always
+
+  orchestrator:
+    build: .
+    container_name: dev-insights-orchestrator
+    env_file:
+      - .env
+    environment:
+      - RUN_SCHEDULED=true
+    restart: always
