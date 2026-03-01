@@ -6,7 +6,7 @@ load_dotenv()
 
 # ── GLOBAL ────────────────────────────────────────────────────────
 API_TOKEN = os.getenv("WAKATIME_API_TOKEN", "")
-EXECUTION_TIME = "00:15"
+EXECUTION_TIME = os.getenv("EXECUTION_TIME", "03:15")
 RUN_SCHEDULED = os.getenv("RUN_SCHEDULED", "false").lower() == "true"
 
 PREVIOUS_DAYS = int(os.getenv("PREVIOUS_DAYS", "0"))
